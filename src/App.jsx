@@ -11,6 +11,7 @@ const App = () => {
   } = useData();
   return (
     <>
+      {/* todo heading */}
       <h1>TODO LIST 😃</h1>
       Name
       <input
