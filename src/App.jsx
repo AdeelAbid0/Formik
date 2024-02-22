@@ -1,19 +1,14 @@
-import React from "react";
-import { useState } from "react";
 import useData from "./useData";
 
 const App = () => {
-  const [inputitems, setinputitems] = useState("");
-  const [items, setitems] = useState([]);
-  const { showitems, handleDelete, handleupdate } = useData(
+  const {
+    handleDelete,
+    handleOnChange,
+    handleupdate,
     inputitems,
-    setinputitems,
     items,
-    setitems
-  );
-  const inputvalue = (e) => {
-    setinputitems(e.target.value);
-  };
+    showitems,
+  } = useData();
   return (
     <>
       <h1>TODO LIST 😃</h1>
@@ -21,7 +16,7 @@ const App = () => {
       <input
         type="text"
         placeholder="Enter items"
-        onChange={inputvalue}
+        onChange={handleOnChange}
         value={inputitems}
       />
       <button onClick={showitems}>+</button>

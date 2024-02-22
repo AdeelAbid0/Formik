@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const useData = (inputitems, setinputitems, items, setitems) => {
+const useData = () => {
+  const [inputitems, setinputitems] = useState("");
+  const [items, setitems] = useState([]);
   const showitems = () => {
     setitems([...items, inputitems]);
     setinputitems("");
@@ -19,7 +21,18 @@ const useData = (inputitems, setinputitems, items, setitems) => {
       setitems(update);
     }
   };
-  return inputitems, showitems, handleDelete, handleupdate, items;
+
+  const handleOnChange = (e) => {
+    setinputitems(e.target.value);
+  };
+  return {
+    inputitems,
+    items,
+    showitems,
+    handleDelete,
+    handleupdate,
+    handleOnChange,
+  };
 };
 
 export default useData;
